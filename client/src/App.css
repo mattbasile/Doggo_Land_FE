@@ -19,7 +19,7 @@
     background: lightblue url("./imgs/hero_img.jpg") no-repeat center center; 
     background-size: cover;
 }
-.dog-card{
+.card{
     height: 625px;
     width: 29%;
     background: #FFFFFF;

@@ -1,5 +1,6 @@
 import React from 'react'
 import DogCard from '../DogCard'
+import KennelCard from '../KennelCard'
 
 export default function CardDisplay() {
     return (
@@ -16,6 +17,7 @@ export default function CardDisplay() {
             <DogCard/>
             <DogCard/>
           </div>
+            <KennelCard/>
             
         </section>
         </>
