@@ -10,6 +10,7 @@ export default function HomePage() {
             <NavBar/>
             <Hero/>
             <CardDisplay/>
+
         </>
     )
 }

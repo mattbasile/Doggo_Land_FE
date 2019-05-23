@@ -17,7 +17,6 @@ export default function CardDisplay() {
             <DogCard/>
             <DogCard/>
           </div>
-            <KennelCard/>
             
         </section>
         </>
