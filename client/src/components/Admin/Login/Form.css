@@ -1,0 +1,16 @@
+.login-form{
+    height: 700px;
+    width: 75%;
+    margin: 50px auto;
+    background: #D7ECFF;
+    border-radius: 7px;
+    box-shadow: 3px 7px 4px rgba(0, 0, 0, 0.25);
+}
+
+.dog-img{
+    background: lightblue url("../../../imgs/baptist-standaert-346832-unsplash.jpg") no-repeat center center; 
+    background-size: cover;
+    height: 100%;
+    border-radius: 7px 0px 0px 7px;
+
+}

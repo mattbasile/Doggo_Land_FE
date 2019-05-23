@@ -35,3 +35,6 @@
     background: lightblue url("./imgs/baxter.jpg") no-repeat center center; 
     background-size: cover;
 }
+.text-7xl{
+    font-size: 5rem;
+}
