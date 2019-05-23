@@ -1,0 +1,23 @@
+.title-font{
+    font-family: 'Oregano', cursive;
+}
+.body-font{
+    font-family: 'Lato', sans-serif;
+}
+
+.blue-background{
+    background-color: #4273A0;
+}
+.blue-font{
+    color: #4273A0;
+}
+.green-background{
+    background-color: #469056;
+}
+.hero { 
+    /* display: flex; */
+    height: 80vh;
+    background: lightblue url("./imgs/hero_img.jpg") no-repeat center center; 
+    background-size: cover;
+}
+
