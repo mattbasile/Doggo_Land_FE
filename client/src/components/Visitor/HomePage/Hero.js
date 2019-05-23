@@ -6,7 +6,7 @@ export default function Hero() {
         <header className="hero w-full">
             <div className="w-1/2 pt-24">
                  <h2 className="title-font text-6xl text-white font-normal mx-auto w-1/2 ">Find your best <br/>friend today!</h2>
-                 <div className="mx-auto w-1/2 flex justify-between mt-4">
+                 <div className="mx-auto w-1/2 flex justify-between mt-4 pr-12">
                     <button className="blue-background hover:bg-blue-700 text-white body-font font-bold py-2 px-4 rounded">
                         Search Dogs
                     </button>
