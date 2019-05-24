@@ -1,0 +1,127 @@
+.justify-s-end{
+    justify-self: end;
+}
+
+.view-more-sm{
+    width: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+    align-items: center;
+    display: flex;
+    border-radius: 9999px;
+}
+.number-gray{
+    color:#D8E4F0
+}
+.text-second-blue{
+    color:#ADD8FF
+}
+.message-card{
+    background: #E8F4FF;
+    box-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+.new-badge{
+    width: 95px;
+    height: 40px;
+    background: #7ACD8C;
+    border-radius: 25px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+    color: #1F4026;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.medium-badge{
+    width: 95px;
+    height: 40px;
+    background: #EBA877;
+    border-radius: 25px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+    color: #6A2D00;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.old-badge{
+    width: 95px;
+    height: 40px;
+    background: #FFAEAE;
+    border-radius: 25px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    /* identical to box height */
+    color: #7C1717;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.card-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.add-dog-btn{
+    width: auto;
+    height: 40px;
+    color: #1F4026;
+    background: #7ACD8C;
+    border-radius: 25px;
+    font-family: Lato;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+.table-row{
+    width: 15%;
+    margin: 0 auto;
+    text-align: center;
+    height: 100px;
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    /* identical to box height */
+    color: #002E57;
+
+}
+.blue-row{
+    background: #BFDFFD;
+}
+
+.table-header{
+    background: #BFDFFD;
+    border-radius: 15px 15px 0px 0px;
+    color: #002E57;
+    height: 50px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 34px;
+}
+.table-footer{
+    border-radius: 0px 0px 15px 15px;
+}

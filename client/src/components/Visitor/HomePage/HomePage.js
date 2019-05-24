@@ -4,10 +4,10 @@ import Hero from './Hero'
 import CardDisplay from './CardDisplay'
 
 
-export default function HomePage() {
+export default function HomePage(props) {
     return (
         <>
-            <NavBar/>
+            <NavBar {...props}/>
             <Hero/>
             <CardDisplay/>
 

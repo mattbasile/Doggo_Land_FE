@@ -3,10 +3,10 @@ import NavBar from './NavBar'
 import Form from './Form'
 
 
-export default function Login() {
+export default function Login(props) {
     return (
         <>
-            <NavBar/>
+            <NavBar {...props}/>
             <Form/>
         </>
     )
