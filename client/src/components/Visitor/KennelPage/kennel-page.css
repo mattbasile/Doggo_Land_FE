@@ -1,6 +1,9 @@
-.kennel-header{
-    width: 50%;
-    background: lightblue url("../../../imgs/baxter.jpg") no-repeat center center; 
+.image-header{
+    width: 60%;
+    background: lightblue url("../../../imgs/kennel.jpg") no-repeat center center; 
     background-size: cover;
     height: 80vh;
+}
+.text-header{
+    width: 40%;
 }
