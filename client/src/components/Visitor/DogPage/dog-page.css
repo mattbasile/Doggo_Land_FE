@@ -1,20 +1,19 @@
-.kennel-image-header{
+.image-header{
     width: 60%;
-    background: lightblue url("../../../imgs/kennel.jpg") no-repeat center center; 
+    background: lightblue url("../../../imgs/baxter.jpg") no-repeat center center; 
     background-size: cover;
     height: auto;
 }
 .text-header{
     width: 40%;
 }
-.kennel-text{
+
+.text{
     font-family: Lato;
     font-style: normal;
     font-weight: 300;
-    font-size: 14px;
-    line-height: 139.5%;
-    /* or 35px */
-    letter-spacing: 0.02em;
+    font-size: 30px;
+    line-height: 140.3%;
 }
 .contact-btn{
     width: 75%;
@@ -30,4 +29,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.contact-two{
+    background: #FFFFFF;
+    border: 3px solid #4273A0;
+    color: #4273A0;
+}
+.dog-title{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 66px;
 }

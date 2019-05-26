@@ -6,7 +6,7 @@ import LandingPageView from './views/VisitorView/LandingPageView'
 import LoginView from './views/AdminView/Login'
 import AdminView from './views/AdminView/AdminDashboard'
 import KennelView from './views/VisitorView/KennelPage'
-import DogView from './views/VisitorView/DogPage'
+import DogView from './views/VisitorView/DogView'
 
 import Footer from './components/Footer'
 

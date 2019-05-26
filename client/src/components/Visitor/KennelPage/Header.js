@@ -5,12 +5,12 @@ import './kennel-page.css'
 export default function Header() {
     return (
         <section className="flex">
-            <div className="image-header">
+            <div className="kennel-image-header">
 
             </div>
             <div className="text-header p-12">
                 <h2 className="text-2xl font-bold body-font">Benhurst Kennel</h2>
-                <p className="text py-4 pr-4">
+                <p className="kennel-text py-4 pr-4">
                 The Benhurst Kennel has been around fron 25 years. They’ve connected over 10,000 families with their new best friends. The Benhurst Kennel has been around fron 25 years. They’ve connected over 10,000 families with their new best friends. The Benhurst Kennel has been around fron 25 years. They’ve connected over 10,000 families with their new best friends.
                 </p>
             <div className="flex w-full items-baseline justify-between my-4 pr-4">
