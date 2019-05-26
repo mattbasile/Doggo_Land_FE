@@ -7,3 +7,27 @@
 .text-header{
     width: 40%;
 }
+.text{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 139.5%;
+    /* or 35px */
+    letter-spacing: 0.02em;
+}
+.contact-btn{
+    width: 75%;
+    margin: 45px auto;
+    height: 45px;
+    background: #469056;
+    border-radius: 7px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
