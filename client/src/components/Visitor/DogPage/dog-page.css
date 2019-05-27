@@ -1,0 +1,44 @@
+.image-header{
+    width: 60%;
+    background: lightblue url("../../../imgs/baxter.jpg") no-repeat center center; 
+    background-size: cover;
+    height: auto;
+}
+.text-header{
+    width: 40%;
+}
+
+.text{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 140.3%;
+}
+.contact-btn{
+    width: 75%;
+    margin: 45px auto;
+    height: 45px;
+    background: #469056;
+    border-radius: 7px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-two{
+    background: #FFFFFF;
+    border: 3px solid #4273A0;
+    color: #4273A0;
+}
+.dog-title{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 66px;
+}

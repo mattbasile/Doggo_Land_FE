@@ -1,0 +1,40 @@
+.title-font{
+    font-family: 'Oregano', cursive;
+}
+.body-font{
+    font-family: 'Lato', sans-serif;
+}
+.blue-background{
+    background-color: #4273A0;
+}
+.blue-font{
+    color: #4273A0;
+}
+.green-background{
+    background-color: #469056;
+}
+.hero { 
+    /* display: flex; */
+    height: 80vh;
+    background: lightblue url("./imgs/hero_img.jpg") no-repeat center center; 
+    background-size: cover;
+}
+.card{
+    height: 625px;
+    width: 29%;
+    background: #FFFFFF;
+    border: 2px solid #B4ACAC;
+    box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.card-text{
+    height: 22.5%;
+}
+.card-img{
+    height: 55%;
+    background: lightblue url("./imgs/baxter.jpg") no-repeat center center; 
+    background-size: cover;
+}
+.text-7xl{
+    font-size: 5rem;
+}
