@@ -1,12 +1,13 @@
 import React from 'react'
 
-export default function DogCard() {
+export default function DogCard(props) {
+    console.log(props.dog)
     return (
         <div className="card my-8">
             <div className="card-img rounded-t-sm"></div>
             <div className="card-text px-4">
                 <div className="flex items-center">
-                    <p className="text-3xl body-font font-extrabold">Baxter</p>
+                    <p className="text-3xl body-font font-extrabold">{props.dog.name}</p>
                     <div className="w-8 h-8 rounded-full flex items-center justify-center blue-background body-font text-white mx-2 ">M</div>
                     <div className="w-8 h-8 rounded-full flex items-center justify-center green-background body-font text-white">Sm</div>
                 </div>

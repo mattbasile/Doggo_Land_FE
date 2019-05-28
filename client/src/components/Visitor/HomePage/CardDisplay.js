@@ -2,7 +2,7 @@ import React from 'react'
 import DogCard from '../DogCard'
 import KennelCard from '../KennelCard'
 
-export default function CardDisplay() {
+export default function CardDisplay(props) {
     return (
         <>
         <div className="blue-background w-full">
@@ -12,10 +12,12 @@ export default function CardDisplay() {
             </div>
         </div>
         <section className="mt-16">
-          <div className="flex justify-around mx-auto">
-            <DogCard/>
-            <DogCard/>
-            <DogCard/>
+          <div className="flex flex-wrap justify-around mx-auto">
+            {
+              props.dogs.map(dog=>{
+                return <DogCard dog={dog} key={dog.id}/>
+              })
+            }
           </div>
             
         </section>

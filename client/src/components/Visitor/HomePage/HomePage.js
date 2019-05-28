@@ -9,7 +9,7 @@ export default function HomePage(props) {
         <>
             <NavBar {...props}/>
             <Hero/>
-            <CardDisplay/>
+            <CardDisplay {...props}/>
 
         </>
     )
