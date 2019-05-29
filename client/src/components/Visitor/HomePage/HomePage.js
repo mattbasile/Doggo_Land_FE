@@ -10,7 +10,6 @@ export default function HomePage(props) {
             <NavBar {...props}/>
             <Hero/>
             <CardDisplay {...props}/>
-
         </>
     )
 }
