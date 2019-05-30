@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 export default function DogCard(props) {
     console.log(props.dog)
@@ -8,7 +9,7 @@ export default function DogCard(props) {
             backgroundSize: "cover"
     }
     return (
-        <div className="card my-8">
+        <div className="card my-8 flex flex-col justify-between">
             <div style={image_styles} className="rounded-t-sm"></div>
             <div className="card-text px-4">
                 <div className="flex items-center">
@@ -34,7 +35,7 @@ export default function DogCard(props) {
                 </p>
             </div>
             <div className="card-text bg-gray-100 rounded-b-sm text-center body-font ">
-                <button className="w-4/5 blue-background text-white h-8 rounded mx-auto my-6 font-semibold hover:bg-blue-700">Learn More</button>
+                <Link to={`/dogs/${props.dog.id}`} className="w-4/5 blue-background text-white h-8 rounded mx-auto my-6 font-semibold hover:bg-blue-700 flex justify-center items-center">Learn More</Link>
                 <button className="w-4/5 green-background text-white h-8 rounded mx-auto  font-semibold hover:bg-green-700">Contact Kennel</button>
             </div>
         </div>

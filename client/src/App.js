@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import {Switch} from 'react-router'
 import {Route, withRouter} from 'react-router-dom'
 import { connect } from "react-redux";
 import './App.css';
 import LandingPageView from './views/VisitorView/LandingPageView'
 import LoginView from './views/AdminView/Login'
 import AdminView from './views/AdminView/AdminDashboard'
-import KennelView from './views/VisitorView/KennelPage'
+import KennelView from './views/VisitorView/KennelView'
 import DogView from './views/VisitorView/DogView'
 import Footer from './components/Footer'
 import actions from './store/actions/index'
@@ -26,12 +27,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route exact path="/"  render={(props) => <LandingPageView {...props}  kennels={this.props.kennels} dogs={this.props.dogs} />}/>
-      <Route path="/login" component={LoginView} />
-      <Route path="/admin/dashboard" component={AdminView} />
+      <Switch>
+        <Route exact path="/"  render={(props) => <LandingPageView {...props}  kennels={this.props.kennels} dogs={this.props.dogs} />}/>
+        <Route path="/login" component={LoginView} />
+        <Route path="/admin/dashboard" component={AdminView} />
 
-      <Route path="/kennels/:id"  render={(props) => <KennelView {...props}  kennels={this.props.kennels} dogs={this.props.dogs}/>} />
-      <Route path="/dogs/:id"  render={(props) => <DogView {...props} kennels={this.props.kennels} dogs={this.props.dogs}/>} />
+        <Route path="/kennels/:id"  render={(props) => <KennelView {...props}  kennels={this.props.kennels} dogs={this.props.dogs}/>} />
+        <Route path="/dogs/:id"  render={(props) => <DogView {...props} kennels={this.props.kennels} dogs={this.props.dogs}/>} />
+      </Switch>
+
       <Footer/>
     </div>
     )

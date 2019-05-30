@@ -3,7 +3,7 @@ import KennelComponent from '../../components/Visitor/KennelPage/KennelComponent
 import { connect } from "react-redux";
 import actions from '../../store/actions/index'
 import { getKennelById } from '../../store/actions/vistorActions';
-class KennelPage extends Component {
+class KennelView extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -20,6 +20,7 @@ class KennelPage extends Component {
     componentDidMount(){
         this.getKennelFromURL();
         this.setState({isLoading: false})
+        window.scrollTo(0, 0)
     }
     
     render() {
@@ -29,8 +30,7 @@ class KennelPage extends Component {
             :(
                 <KennelComponent {...this.props} />
             )
-            }
-               
+            } 
             </>
         )
     }
@@ -51,4 +51,4 @@ const mapStateToProps = (state)=>(
   export default  connect(
     mapStateToProps,
     mapDispatchToProps
-  )(KennelPage)
+  )(KennelView)

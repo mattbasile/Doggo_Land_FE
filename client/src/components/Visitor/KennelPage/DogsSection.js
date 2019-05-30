@@ -3,6 +3,7 @@ import DogCard from '../DogCard'
 
 
 export default function DogsSection(props) {
+    
     return (
         <section>
             <div className="blue-background h-24 text-center flex justify-center items-center text-white">
@@ -13,7 +14,7 @@ export default function DogsSection(props) {
                     props.dogs.map(dog=>{
                         if(dog.kennel_id === Number(props.kennel_id)) {
                             return <DogCard dog={dog} key={dog.id}/>
-                        }  
+                        }
                     })
                 }
             </div>

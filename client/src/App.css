@@ -28,7 +28,9 @@
     border-radius: 5px;
 }
 .card-text{
-    height: 22.5%;
+    padding: 3px 15px 28px;
+    margin: 14px 0 0;
+    
 }
 .card-img{
     height: 55%;
