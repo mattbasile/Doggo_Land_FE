@@ -7,30 +7,30 @@ class KennelView extends Component {
     constructor(props){
         super(props)
         this.state={
-            kennel_id: this.props.match.params.id,
-            isLoading: true
+            selected_kennel:[],
         }
     }
 
-    getKennelFromURL = () =>{
-        const kennel_id = Number(this.props.match.params.id)
-        console.log(kennel_id)
-        this.props.getKennelById(kennel_id)
+    establish_kennel(){
+        if(this.props.kennels.length < 1){
+            let active_kennel = JSON.parse(localStorage.getItem("active_kennel"));
+            return active_kennel
+        } else{
+            const id = Number(this.props.match.params.id);
+            let active_kennel = this.props.kennels.find(kennel=>kennel.id=== id)
+            localStorage.setItem("active_kennel", JSON.stringify(active_kennel))
+            return active_kennel
+        }
     }
     componentDidMount(){
-        this.getKennelFromURL();
-        this.setState({isLoading: false})
+        this.establish_kennel()
         window.scrollTo(0, 0)
     }
     
     render() {
         return (
             <>
-            {this.state.isLoading? (<h2>Loading...</h2>)
-            :(
-                <KennelComponent {...this.props} />
-            )
-            } 
+                <KennelComponent {...this.props} kennel={this.establish_kennel()}/>
             </>
         )
     }

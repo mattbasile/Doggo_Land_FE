@@ -18,9 +18,9 @@ export default function DogCard(props) {
                     ( <div className="w-8 h-8 rounded-full flex items-center justify-center blue-background body-font text-white mx-2 ">M</div>)
                     : <div className="w-8 h-8 rounded-full flex items-center justify-center bg-pink-300 body-font text-white mx-2 ">F</div>
                     }
-                    {props.dog.Size == "small" ? (
+                    {props.dog.Size === "small" ? (
                         <div className="w-8 h-8 rounded-full flex items-center justify-center green-background body-font text-white">Sm</div>
-                    ) : props.dog.size =="medium" ? (
+                    ) : props.dog.size ==="medium" ? (
                         <div className="w-8 h-8 rounded-full flex items-center justify-center bg-orange-500 body-font text-white">Md</div>
                     ) : (
                         <div className="w-8 h-8 rounded-full flex items-center justify-center bg-red-500 body-font text-white">Lg</div>

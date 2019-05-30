@@ -19,7 +19,9 @@ export default (state = initialState, { type, payload }) => {
     case actions.visitorTypes.FETCH_DOGS_SUCCESS:
         return{
             ...state,
-            dogs: payload
+            dogs: payload,
+            loading: false,
+            error: null,
         }
     case actions.visitorTypes.FETCH_DOGS_FAIL:
         return{
@@ -36,7 +38,9 @@ export default (state = initialState, { type, payload }) => {
     case actions.visitorTypes.FETCH_KENNELS_SUCCESS:
         return{
             ...state,
-            kennels: payload
+            kennels: payload,
+            loading: false,
+            error: null,
         }
     case actions.visitorTypes.FETCH_KENNELS_FAIL:
         return{
@@ -53,7 +57,9 @@ export default (state = initialState, { type, payload }) => {
     case actions.visitorTypes.FETCH_KENNELBYID_SUCCESS:
         return{
             ...state,
-            selected_kennel: payload
+            selected_kennel: payload,
+            loading: false,
+            error: null,
         }
     case actions.visitorTypes.FETCH_KENNELBYID_FAIL:
         return{

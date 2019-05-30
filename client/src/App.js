@@ -26,7 +26,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+    <div className="App">
+        {this.props.loading ? (<h2>Loading...</h2>):
+      (
+      <>
       <Switch>
         <Route exact path="/"  render={(props) => <LandingPageView {...props}  kennels={this.props.kennels} dogs={this.props.dogs} />}/>
         <Route path="/login" component={LoginView} />
@@ -35,8 +38,9 @@ class App extends Component {
         <Route path="/kennels/:id"  render={(props) => <KennelView {...props}  kennels={this.props.kennels} dogs={this.props.dogs}/>} />
         <Route path="/dogs/:id"  render={(props) => <DogView {...props} kennels={this.props.kennels} dogs={this.props.dogs}/>} />
       </Switch>
-
       <Footer/>
+      </>
+      )}
     </div>
     )
   }
@@ -44,7 +48,8 @@ class App extends Component {
 const mapStateToProps = (state)=>(
   {
       dogs: state.dogs,
-      kennels: state.kennels
+      kennels: state.kennels,
+      loading: state.loading
   }
 )
 const mapDispatchToProps = dispatch => {
