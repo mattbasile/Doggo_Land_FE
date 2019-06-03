@@ -35,7 +35,11 @@ class App extends Component {
    console.log(message)
    this.props.createNotification(message)
  }
-
+closeModal(e){
+  e.preventDefault()
+  this.props.clearState()
+  this.setState({hidden:true})
+}
   render() {
     return (
     <div className="App">
@@ -60,9 +64,12 @@ class App extends Component {
       </Switch>
       {this.state.hidden ? null :
         <DogCardModal 
+        closeModal ={this.closeModal.bind(this)}
+        clearState={this.props.clearState}
         kennels={this.props.kennels}
         dog={this.state.requested}
         submitting={this.props.submitting}
+        submitted={this.props.submitted}
         submitRequest={this.submitRequest.bind(this)}/>
       }
       <Footer/>
@@ -77,13 +84,15 @@ const mapStateToProps = (state)=>(
       dogs: state.dogs,
       kennels: state.kennels,
       loading: state.loading,
-      submitting: state.submitting
+      submitting: state.submitting,
+      submitted: state.submitted,
   }
 )
 const mapDispatchToProps = dispatch => {
   return {
     getDogs: () => dispatch(actions.visitors.getDogs()),
     getKennels: () => dispatch(actions.visitors.getKennels()),
+    clearState: () => dispatch(actions.visitors.clearState()),
     createNotification: (content) => dispatch(actions.visitors.createNotification(content))
   };
 };

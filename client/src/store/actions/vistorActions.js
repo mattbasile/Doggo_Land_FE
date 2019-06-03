@@ -32,3 +32,7 @@ export const createNotification = (content) => dispatch =>{
     .then(res => dispatch({type: visitorTypes.POST_NOTIFICATION_SUCCESS, payload: res.data}))
     .catch(err=> dispatch({type: visitorTypes.POST_NOTIFICATION_FAIL, payload: err}))
 }
+
+export const clearState = () => dispatch =>{
+    dispatch({type: visitorTypes.CLEAR_STATE_START});
+}
