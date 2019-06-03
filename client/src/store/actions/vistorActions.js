@@ -24,3 +24,11 @@ export const getKennelById = id => dispatch =>{
     .then(res => dispatch({type: visitorTypes.FETCH_KENNELBYID_SUCCESS, payload: res.data}))
     .catch(err=> dispatch({type: visitorTypes.FETCH_KENNELBYID_FAIL, payload: err}))
 }
+
+export const createNotification = (content) => dispatch =>{
+    console.log(content)
+    dispatch({type: visitorTypes.POST_NOTIFICATION_START});
+    API.post(`/visitors/notifications`,content)
+    .then(res => dispatch({type: visitorTypes.POST_NOTIFICATION_SUCCESS, payload: res.data}))
+    .catch(err=> dispatch({type: visitorTypes.POST_NOTIFICATION_FAIL, payload: err}))
+}

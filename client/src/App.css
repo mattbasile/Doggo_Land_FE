@@ -40,3 +40,68 @@
 .text-7xl{
     font-size: 5rem;
 }
+
+/* Modal Styles */
+.modal{
+    box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.25);
+    width: 654px;
+    border-radius: 25px;
+    height: 434px;
+}
+.right-modal{
+    width: 356px;
+    height: 434px;
+    background: #FFFFFF;
+    border-radius: 0px 25px 25px 0px;
+    
+}
+.modal-header{
+font-family: Lato;
+font-style: normal;
+font-weight: bold;
+font-size: 32px;
+line-height: 38px;
+color: #053A6A;
+}
+.modal-button{
+    width: 199px;
+    height: 54px;
+    background: #5F906A;
+    border-radius: 7px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #FFFFFF;
+}
+.submitted-header{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+    color: #053A6A;
+}
+.modal p{
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #053A6A;
+    margin: 20px 0;
+}
+.close-btn{
+    width: 199px;
+    height: 54px;
+    background: #D95D5D;
+    border-radius: 7px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    color: #FFFFFF;
+}
