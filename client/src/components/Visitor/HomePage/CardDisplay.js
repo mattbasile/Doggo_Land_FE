@@ -40,7 +40,7 @@ showDogs(e){
           }))
            :(
             this.props.dogs.map(dog=>{
-              return <DogCard dog={dog} key={dog.id}/>
+              return <DogCard requestDog={this.props.requestDog} dog={dog} key={dog.id}/>
             })
           )}
         </div>

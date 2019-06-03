@@ -3,8 +3,11 @@ const initialState = {
     dogs: [],
     kennels: [],
     selected_kennel: [],
+    return_message: [],
     loading: false,
-    error: null
+    error: null,
+    submitting: false,
+    submitted: true,
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -19,7 +22,9 @@ export default (state = initialState, { type, payload }) => {
     case actions.visitorTypes.FETCH_DOGS_SUCCESS:
         return{
             ...state,
-            dogs: payload
+            dogs: payload,
+            loading: false,
+            error: null,
         }
     case actions.visitorTypes.FETCH_DOGS_FAIL:
         return{
@@ -36,7 +41,9 @@ export default (state = initialState, { type, payload }) => {
     case actions.visitorTypes.FETCH_KENNELS_SUCCESS:
         return{
             ...state,
-            kennels: payload
+            kennels: payload,
+            loading: false,
+            error: null,
         }
     case actions.visitorTypes.FETCH_KENNELS_FAIL:
         return{
@@ -53,9 +60,31 @@ export default (state = initialState, { type, payload }) => {
     case actions.visitorTypes.FETCH_KENNELBYID_SUCCESS:
         return{
             ...state,
-            selected_kennel: payload
+            selected_kennel: payload,
+            loading: false,
+            error: null,
         }
     case actions.visitorTypes.FETCH_KENNELBYID_FAIL:
+        return{
+            ...state,
+            error: payload,
+            loading: false
+        }
+    case actions.visitorTypes.POST_NOTIFICATION_START:
+        return{
+            ...state,
+            error: null,
+            submitting: true
+        }
+    case actions.visitorTypes.POST_NOTIFICATION_SUCCESS:
+        return{
+            ...state,
+            return_message: payload,
+            submitting: false,
+            submitted: true,
+            error: null,
+        }
+    case actions.visitorTypes.POST_NOTIFICATION_FAIL:
         return{
             ...state,
             error: payload,
