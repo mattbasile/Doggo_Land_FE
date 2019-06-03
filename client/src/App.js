@@ -25,6 +25,8 @@ class App extends Component {
     this.props.getDogs()
     this.props.getKennels()
  } 
+ 
+
  requestDog(e, id){
    e.preventDefault();
    console.log(this.props.dogs)
@@ -42,7 +44,7 @@ closeModal(e){
 }
   render() {
     return (
-    <div className="App">
+    <div className="App z-0">
         {this.props.loading ? (<h2>Loading...</h2>):
       (
       <>

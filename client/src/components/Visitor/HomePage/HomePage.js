@@ -6,10 +6,10 @@ import CardDisplay from './CardDisplay'
 
 export default function HomePage(props) {
     return (
-        <>
+        <section>
             <NavBar {...props}/>
             <Hero/>
             <CardDisplay {...props}/>
-        </>
+        </section>
     )
 }
