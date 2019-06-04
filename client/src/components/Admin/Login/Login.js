@@ -7,7 +7,11 @@ export default function Login(props) {
     return (
         <>
             <NavBar {...props}/>
-            <Form/>
+            <Form 
+            handleInput={props.handleInput}
+            toggleRegister={props.toggleRegister}
+            registerView={props.registerView}
+            />
             <Footer/>
         </>
     )

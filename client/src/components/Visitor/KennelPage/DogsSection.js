@@ -13,8 +13,7 @@ export default function DogsSection(props) {
             {props.kennel.dogs.map(dog=>{
                 return <DogCard key={dog.id} dog={dog}/>
             })}
-            
-            }
+
 
             </div>
             <div className="blue-background w-1/5 mx-auto py-4 px-2 rounded-full text-white flex items-center mb-8">
