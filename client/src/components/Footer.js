@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer className="flex h-24 justify-center items-center body-font blue-background text-white ">
+        <footer className="flex h-24 justify-center items-center body-font blue-background text-white relative bottom-0 w-full">
             <h1 className="text-5xl font-normal title-font tracking-wide">Doggo Land</h1>
             <p className="text-5xl font-normal title-font tracking-wide ml-2" >
                 ©

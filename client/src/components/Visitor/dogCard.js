@@ -37,7 +37,7 @@ export default function DogCard(props) {
             </div>
             <div className="card-text bg-gray-100 rounded-b-sm text-center body-font ">
                 <Link to={`/dogs/${props.dog.id}`} className="w-4/5 blue-background text-white h-8 rounded mx-auto my-6 font-semibold hover:bg-blue-700 flex justify-center items-center">Learn More</Link>
-                <button onClick={(e)=>props.requestDog(e,props.dog.id)}className="w-4/5 green-background text-white h-8 rounded mx-auto  font-semibold hover:bg-green-700">Contact Kennel</button>
+                <button onClick={(e)=>props.requestDog(e,props.dog.id)} className="w-4/5 z-10 green-background text-white h-8 rounded mx-auto  font-semibold hover:bg-green-700">Contact Kennel</button>
             </div>
         </div>
     )

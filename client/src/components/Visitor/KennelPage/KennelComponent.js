@@ -2,6 +2,7 @@
 import NavBar from '../HomePage/NavBar'
 import Header from './Header';
 import DogsSection from './DogsSection'
+import Footer from '../../Footer'
 
 import React, { Component } from 'react'
 
@@ -15,6 +16,7 @@ export default class KennelComponent extends Component {
             <NavBar {...this.props}/>
             <Header  {...this.props}/>
             <DogsSection  {...this.props}/>
+            <Footer/>
         </section>
         )
     }

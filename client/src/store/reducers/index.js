@@ -7,12 +7,11 @@ const initialState = {
     loading: false,
     error: null,
     submitting: false,
-    submitted: true,
+    submitted: false,
 }
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
-
     case actions.visitorTypes.FETCH_DOGS_START:
         return{
             ...state,
@@ -89,6 +88,16 @@ export default (state = initialState, { type, payload }) => {
             ...state,
             error: payload,
             loading: false
+        }
+    case actions.visitorTypes.CLEAR_STATE_START:
+        return{
+            ...state,
+            selected_kennel: [],
+            return_message: [],
+            loading: false,
+            error: null,
+            submitting: false,
+            submitted: false,
         }
     default:
         return state

@@ -25,6 +25,8 @@ class App extends Component {
     this.props.getDogs()
     this.props.getKennels()
  } 
+ 
+
  requestDog(e, id){
    e.preventDefault();
    console.log(this.props.dogs)
@@ -35,7 +37,11 @@ class App extends Component {
    console.log(message)
    this.props.createNotification(message)
  }
-
+closeModal(e){
+  e.preventDefault()
+  this.props.clearState()
+  this.setState({hidden:true})
+}
   render() {
     return (
     <div className="App">
@@ -43,7 +49,7 @@ class App extends Component {
       (
       <>
       <Switch>
-        <Route exact path="/"  render={(props) => <LandingPageView {...props}  kennels={this.props.kennels} dogs={this.props.dogs} requestDog={this.requestDog.bind(this)}/>}/>
+        <Route exact path="/"  render={(props) => <LandingPageView hidden={this.state.hidden}{...props}  kennels={this.props.kennels} dogs={this.props.dogs} requestDog={this.requestDog.bind(this)}/>}/>
         <Route path="/login" component={LoginView} />
         <Route path="/admin/dashboard" component={AdminView} />
 
@@ -60,12 +66,14 @@ class App extends Component {
       </Switch>
       {this.state.hidden ? null :
         <DogCardModal 
+        closeModal ={this.closeModal.bind(this)}
+        clearState={this.props.clearState}
         kennels={this.props.kennels}
         dog={this.state.requested}
         submitting={this.props.submitting}
+        submitted={this.props.submitted}
         submitRequest={this.submitRequest.bind(this)}/>
       }
-      <Footer/>
       </>
       )}
     </div>
@@ -77,13 +85,15 @@ const mapStateToProps = (state)=>(
       dogs: state.dogs,
       kennels: state.kennels,
       loading: state.loading,
-      submitting: state.submitting
+      submitting: state.submitting,
+      submitted: state.submitted,
   }
 )
 const mapDispatchToProps = dispatch => {
   return {
     getDogs: () => dispatch(actions.visitors.getDogs()),
     getKennels: () => dispatch(actions.visitors.getKennels()),
+    clearState: () => dispatch(actions.visitors.clearState()),
     createNotification: (content) => dispatch(actions.visitors.createNotification(content))
   };
 };
