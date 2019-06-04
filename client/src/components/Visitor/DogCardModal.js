@@ -48,7 +48,8 @@ componentWillMount(){
 
     render() {
         return (
-            <section ref={node =>this.node = node} className="flex mx-auto w-4/5 modal z-10 flex justify-center items-center text-center shadow-xl my-4">
+        <div className="modal-overlay">
+            <section ref={node =>this.node = node} className="flex mx-auto w-4/5 modal z-10 flex justify-center items-center text-center shadow-xl my-4 bg-white">
                 {this.props.submitted ? (
                 <div>
                     <h2 className="submitted-header">Thank you for your interest in {this.props.dog.name}!</h2>
@@ -67,6 +68,7 @@ componentWillMount(){
             }
                 
             </section>
+        </div>
         )
     }
 }

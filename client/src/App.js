@@ -44,12 +44,12 @@ closeModal(e){
 }
   render() {
     return (
-    <div className="App z-0">
+    <div className="App">
         {this.props.loading ? (<h2>Loading...</h2>):
       (
       <>
       <Switch>
-        <Route exact path="/"  render={(props) => <LandingPageView {...props}  kennels={this.props.kennels} dogs={this.props.dogs} requestDog={this.requestDog.bind(this)}/>}/>
+        <Route exact path="/"  render={(props) => <LandingPageView hidden={this.state.hidden}{...props}  kennels={this.props.kennels} dogs={this.props.dogs} requestDog={this.requestDog.bind(this)}/>}/>
         <Route path="/login" component={LoginView} />
         <Route path="/admin/dashboard" component={AdminView} />
 
@@ -74,7 +74,6 @@ closeModal(e){
         submitted={this.props.submitted}
         submitRequest={this.submitRequest.bind(this)}/>
       }
-      <Footer/>
       </>
       )}
     </div>

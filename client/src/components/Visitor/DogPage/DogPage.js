@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../HomePage/NavBar'
 import Header from './Header';
+import Footer from '../../Footer'
 
 export default function DogPage(props) {
     
@@ -10,6 +11,7 @@ export default function DogPage(props) {
         <div>
            <NavBar {...props}/>
            <Header dog={props.dog} kennel={props.kennel}/>
+           <Footer/>
         </div>
     )
 }
