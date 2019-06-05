@@ -11,7 +11,7 @@ export default function NavBar(props) {
                 <a href="">About</a>
                 <a href="">Contact</a> 
             </nav>
-            <button onClick={() => {props.history.push('/login')}} className=" text-2xl green-background hover:bg-green-700 text-white font-bold py-2 px-4 rounded font-light">
+            <button onClick={() => {props.history.push(localStorage.getItem("authToken")?'/admin/dashboard':'./login')}} className=" text-2xl green-background hover:bg-green-700 text-white font-bold py-2 px-4 rounded font-light">
                 Admin
             </button>
         </div>

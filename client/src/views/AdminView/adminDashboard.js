@@ -9,7 +9,7 @@ export default class AdminDashboard extends Component {
     render() {
         return (
             <div>
-                <Dashboard/>
+                <Dashboard {...this.props}/>
             </div>
         )
     }

@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
     render() {
         return (
             <section>
-                <Navbar/>
+                <Navbar {...this.props}/>
                 <Header/>
                 <MessageSection/>
                 <DogsChart/>
