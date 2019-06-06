@@ -23,6 +23,7 @@ class App extends Component {
     }
   }
 componentDidMount(){
+
     this.props.getDogs()
     this.props.getKennels()
  } 

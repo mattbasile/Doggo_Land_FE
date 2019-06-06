@@ -18,6 +18,7 @@ export default (state = initialState, { type, payload }) => {
     case authTypes.LOGIN_SUCCESS:
         API.defaults.headers.common["Authorization"] = payload.token;
         localStorage.setItem('authToken', payload.token)
+        localStorage.setItem('user', JSON.stringify(payload))
         return{
             ...state,
             user: payload,

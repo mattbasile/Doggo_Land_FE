@@ -11,12 +11,13 @@ export default class Dashboard extends Component {
         super(props)
     }
     render() {
+        console.log(this.props)
         return (
             <section>
-                <Navbar {...this.props}/>
-                <Header/>
-                <MessageSection/>
-                <DogsChart/>
+                <Navbar user={this.props.user} {...this.props}/>
+                <Header user={this.props.user}/>
+                <MessageSection user={this.props.user}/>
+                <DogsChart user={this.props.user}/>
                 <Footer/>
             </section>
         )

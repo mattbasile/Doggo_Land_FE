@@ -26,13 +26,12 @@ export class Login extends Component {
     })
    }
    handleLogin = (e)=>{
-       e.preventDefault();
-       const username = this.state.username;
-       const password = this.state.password;
-       const user ={username,password}
-       this.props.login(user)
-       
-   }
+        e.preventDefault();
+        const username = this.state.username;
+        const password = this.state.password;
+        const user ={username,password}
+        this.props.login(user)
+    }
    handleRegister= (e)=>{
         e.preventDefault();
         const username = this.state.username;
@@ -45,6 +44,9 @@ export class Login extends Component {
     render() {
         return (
         <>
+       {localStorage.getItem('authToken')? (
+           this.props.history.push('/admin/dashboard')
+       ):(
             <LoginPage 
             handleInput={this.handleInput}
             toggleRegister={this.toggleRegister}
@@ -56,6 +58,7 @@ export class Login extends Component {
             password={this.state.password}
             kennel_name={this.state.kennel_name}
             />
+            )}
         </>
         )
     }
