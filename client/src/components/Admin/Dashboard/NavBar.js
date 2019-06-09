@@ -9,7 +9,8 @@ export default function NavBar(props) {
             <a href="">Dashboard</a>
             <div className="flex items-center">
                 <a href="">Messages</a>
-                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-red-300 body-font font-semibold text-red-800 mx-2 ">3</div>
+                
+                <div className={props.messages.length > 0 ? "w-8 h-8 rounded-full flex items-center justify-center bg-red-300 body-font font-semibold text-red-800 mx-2" : "w-8 h-8 rounded-full flex items-center justify-center bg-green-300 body-font font-semibold text-green-800 mx-2 "}>{props.messages.length}</div>
             </div>
             <a href="">Dogs</a>
         </nav>

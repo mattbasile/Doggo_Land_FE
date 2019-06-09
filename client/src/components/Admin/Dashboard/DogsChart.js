@@ -8,7 +8,7 @@ export default function DogsChart() {
         <section className="flex flex-col p-8">
             <div className="flex items-center my-12">
                 <h2 className="text-3xl body-font font-normal mr-4">Current Dogs</h2>
-                <button className="add-dog-btn">
+                <button className="add-dog-btn hover:bg-green-300">
                     <p className="mr-2">Add a Dog</p>
                     <i className="fas fa-plus-circle"></i>
                 </button>

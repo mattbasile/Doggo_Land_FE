@@ -1,10 +1,12 @@
 import {authTypes} from "../actions/actionTypes"
+import {adminTypes} from "../actions/actionTypes"
 import API from "../../axios-instance";
 const initialState = {
     user: {},
     loading: false,
     error: null,
     loggedIn: false,
+    messages: []
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -52,6 +54,25 @@ export default (state = initialState, { type, payload }) => {
             loading: false,
             error: payload
     }
+    case adminTypes.GET_NOTIFICATION_START:
+        return{
+            ...state,
+            loading: true,
+            error: null
+        }
+    case adminTypes.GET_NOTIFICATION_START:
+            return{
+                ...state,
+                loading: false,
+                messages: payload,
+                error: null
+        }
+    case adminTypes.GET_NOTIFICATION_START:
+        return{
+            ...state,
+            loading: false,
+            error: payload
+    }   
    
     default:
         return state
