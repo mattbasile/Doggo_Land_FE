@@ -10,13 +10,15 @@ export default class Dashboard extends Component {
     constructor(props){
         super(props)
     }
+    
     render() {
+        console.log(this.props)
         return (
             <section>
-                <Navbar/>
-                <Header/>
-                <MessageSection/>
-                <DogsChart/>
+                <Navbar user={this.props.user} messages={this.props.messages} {...this.props}/>
+                <Header user={this.props.user} messages={this.props.messages}/>
+                <MessageSection user={this.props.user} messages={this.props.messages}/>
+                <DogsChart user={this.props.user}/>
                 <Footer/>
             </section>
         )
