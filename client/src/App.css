@@ -58,15 +58,14 @@
     height: 434px;
     background: #FFFFFF;
     border-radius: 0px 25px 25px 0px;
-    
 }
 .modal-header{
-font-family: Lato;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
-line-height: 38px;
-color: #053A6A;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 38px;
+    color: #053A6A;
 }
 .modal-button{
     width: 199px;
