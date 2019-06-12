@@ -8,7 +8,7 @@ class AdminDashboard extends Component {
         super(props)
         this.state={
             user: props.user,
-            hidden: false
+            hidden: true
         }
     }
     closeModal = (e) =>{
@@ -49,7 +49,9 @@ class AdminDashboard extends Component {
                     <AddDogModal 
                     closeModal ={this.closeModal}
                     closeModal ={this.closeModal}
-                    addDog={this.addDog}/>
+                    addDog={this.props.addDog}
+                    user={this.state.user}
+                    />
                 }
             </div>
         )
@@ -64,6 +66,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch=> {
     return{
        getNotifications: (id) => dispatch(actions.admins.getNotifications(id)),
+       addDog: (dog) => dispatch(actions.admins.addDog(dog)),
     }
 }
 

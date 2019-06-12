@@ -6,7 +6,8 @@ const initialState = {
     loading: false,
     error: null,
     loggedIn: false,
-    messages: []
+    messages: [],
+    newDog: null
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -73,7 +74,26 @@ export default (state = initialState, { type, payload }) => {
             loading: false,
             error: payload
     }   
-   
+    case adminTypes.ADD_DOG_START:
+        return{
+            ...state,
+            loading: true,
+            error: null
+        }
+    case adminTypes.ADD_DOG_SUCCESS:
+        return{
+            ...state,
+            loading: false,
+            newDog: payload,
+            error: null
+        }
+    case adminTypes.ADD_DOG_FAIL:
+        return{
+            ...state,
+            loading: false,
+            error: payload
+        }
+    
     default:
         return state
     }

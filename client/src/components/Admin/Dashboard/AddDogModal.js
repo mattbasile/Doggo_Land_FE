@@ -60,7 +60,7 @@ componentWillMount(){
                 :
                 (
                 <>
-                <AddDogForm dog={this.props.dog} submitRequest={this.props.submitRequest}/>
+                <AddDogForm dog={this.props.dog} submitRequest={this.props.submitRequest} addDog={this.props.addDog} kennel_id={this.props.user.kennel_id}/>
                 </>
                 )
             

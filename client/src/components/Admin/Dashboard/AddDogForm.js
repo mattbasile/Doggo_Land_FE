@@ -5,7 +5,7 @@ export default class DogRequestForm extends Component {
         super(props);
         this.state={
             name:"",
-            email:"",
+            age:"",
             bio:"",
             gender: "",
             size: ""
@@ -14,11 +14,18 @@ export default class DogRequestForm extends Component {
     handleInput = e => {
          this.setState({ [e.target.name]: e.target.value});
     }
-    submitRequest = e =>{
+    handleAddDog = e =>{
         e.preventDefault();
-        const message = {kennel_id: this.props.dog.kennel_id, dog_id: this.props.dog.id, ...this.state}
-        // perform POST Request
-        this.props.submitRequest(message)
+        const boolGender = this.state.gender === "male" ? 1 : 0;
+        const dog ={
+            name: this.state.name,
+            age: Number(this.state.age),
+            bio: this.state.bio,
+            size: this.state.size,
+            male: boolGender,
+            kennel_id: Number(this.props.kennel_id)
+        }
+        this.props.addDog(dog);
     }
     render() {
         return (
@@ -47,19 +54,19 @@ export default class DogRequestForm extends Component {
                         <div className="flex flex-col my-1">
                             <label className=" text-left px-10  block text-blue-900 text-sm font-semibold mb-2">Size:</label>
                             <div className="flex my-1 items-baseline">
-                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="lg"/><label className="text-left block text-blue-900 text-md mb-2">Large</label> 
+                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="large"/><label className="text-left block text-blue-900 text-md mb-2">Large</label> 
                             </div>
                             <div className="flex my-1 items-baseline">
-                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="md"/><label className="text-left block text-blue-900 text-md mb-2">Medium</label>  
+                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="medium"/><label className="text-left block text-blue-900 text-md mb-2">Medium</label>  
                             </div>
                             <div className="flex my-1 items-baseline">
-                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="sm"/><label className="text-left block text-blue-900 text-md mb-2">Small</label> 
+                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="small"/><label className="text-left block text-blue-900 text-md mb-2">Small</label> 
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
-            <button onClick={(e)=>this.submitRequest(e)}className="modal-button">
+            <button onClick={(e)=>this.handleAddDog(e)}className="modal-button">
                     Submit
             </button>
             </>
