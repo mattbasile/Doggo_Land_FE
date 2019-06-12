@@ -8,7 +8,7 @@ class AdminDashboard extends Component {
         super(props)
         this.state={
             user: props.user,
-            hidden: true
+            hidden: false
         }
     }
     closeModal = (e) =>{

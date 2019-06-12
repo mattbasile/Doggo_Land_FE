@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function NavBar(props) {
     return (
-        <div className="flex justify-around h-24 items-center body-font bg-white blue-font mt-4">
+        <div className="flex justify-around h-24 items-center body-font bg-white blue-font ">
         <p onClick={() => {props.history.push('/')}} className="cursor-pointer text-5xl font-normal title-font tracking-wide">Doggo Land</p>
 
         <nav className="flex justify-between w-1/3 text-2xl font-medium">
