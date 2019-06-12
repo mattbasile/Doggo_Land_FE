@@ -3,12 +3,12 @@ import DogRow from './DogRow'
 
 
 import './Dashboard.css'
-export default function DogsChart() {
+export default function DogsChart(props) {
     return (
         <section className="flex flex-col p-8">
             <div className="flex items-center my-12">
                 <h2 className="text-3xl body-font font-normal mr-4">Current Dogs</h2>
-                <button className="add-dog-btn hover:bg-green-300">
+                <button onClick={(e)=>props.showModal(e)} className="add-dog-btn hover:bg-green-300">
                     <p className="mr-2">Add a Dog</p>
                     <i className="fas fa-plus-circle"></i>
                 </button>

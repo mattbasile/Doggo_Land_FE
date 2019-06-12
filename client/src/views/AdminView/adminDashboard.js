@@ -39,7 +39,11 @@ class AdminDashboard extends Component {
         return (
             <div>
             {!this.state.user ? <h1>Loading</h1>:
-             (<Dashboard messages={this.props.messages} user={this.state.user} {...this.props}/>)
+             (<Dashboard 
+                showModal = {this.showModal}
+                messages={this.props.messages}
+                user={this.state.user}
+                {...this.props}/>)
               }
                 {this.state.hidden ? null :
                     <AddDogModal 
