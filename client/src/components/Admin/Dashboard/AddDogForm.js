@@ -12,9 +12,37 @@ export default class DogRequestForm extends Component {
             breeds: [],
             addingBreed: false,
             newBreed: "",
-            err: false
+            err: false,
+            filtered: []
         }
     }
+    handleSearch(e) {
+    let currentList = [];
+    let newList = [];
+    if (e.target.value !== "") {
+      // Assign the original list to currentList
+      currentList = this.props.breeds;
+        // Use .filter() to determine which items should be displayed
+        // based on the search terms
+      newList = currentList.filter(item => {
+                // change current item to lowercase
+                const lc = item.name.toLowerCase();
+                    // change search term to lowercase
+                const filter = e.target.value.toLowerCase();
+                    // check to see if the current list item includes the search term
+                    // If it does, it will be added to newList. Using lowercase eliminates
+                    // issues with capitalization in search terms and search content
+                return lc.includes(filter);
+      });
+    } else {
+            // If the search bar is empty, set newList to original task list
+      newList = this.props.breeds;
+    }
+        // Set the filtered state based on what our rules added to newList
+    this.setState({
+      filtered: newList
+    });
+  }
     handleInput = e => {
          this.setState({ [e.target.name]: e.target.value});
     }
@@ -49,6 +77,17 @@ export default class DogRequestForm extends Component {
       this.state.newBreed ? this.props.addBreed(this.state.newBreed) : this.setState({err: true})
       this.props.getBreeds()
     }
+    componentDidMount() {
+        this.setState({
+          filtered: this.props.breeds
+        });
+      }
+      
+      componentWillReceiveProps(nextProps) {
+        this.setState({
+          filtered: nextProps.breeds
+        });
+      }
     render() {
         return (
             <>
@@ -57,22 +96,22 @@ export default class DogRequestForm extends Component {
             ( 
             <>
                 <h2 className="modal-header my-4 text-center">Add Breeds</h2>
-                <div>
-                    <div>
-                        <input type="text" placeholder="Search Breeds..."/>
+                <div className="flex">
+                    <div className="w-1/2 overflow-y-auto h-64">
+                        <input onChange={(e)=>this.handleSearch(e)} type="text" placeholder="Search Breeds..."/>
                         {
-                            this.props.breeds.map(breed=>{
-                                return (<div className="flex my-1 items-baseline">
+                            this.state.filtered.map(breed=>{
+                                return (<div key={breed.id} className={breed.id%2 === 0?"flex my-1 items-baseline py-1 bg-blue-200 font-semibold" :"flex my-1 items-baseline py-1  font-semibold" }>
                                 <input onChange={(e)=>this.assignBreed(e, breed)} className=" ml-10 mr-6" type="checkbox" name="size" value={breed.name}/><label className="text-left block text-blue-900 text-md mb-2">{breed.name}</label> 
                             </div>)
                             })
                         }
                     </div>
-                    <div className="flex">
-                        <span>Breed not there?</span>
-                        <div>
-                            <input type="text" onChange={(e)=>this.handleInput(e)} placeholder="Add a Breed" name="newBreed" />
-                            <i onClick={()=>this.createNewBreed()}className="fas fa-plus-circle h-8 w-8 text-green-600 hover:text-green-800"></i>
+                    <div className="w-1/2">
+                        <span className="inline-block modal-header mt-6 mb-3">Breed not there?</span>
+                        <div className="flex items-center justify-center">
+                            <input className="bg-blue-100 rounded p-1 border-blue-100" type="text" onChange={(e)=>this.handleInput(e)} placeholder="Add a new breed" name="newBreed" />
+                            <i onClick={()=>this.createNewBreed()}className="fas fa-plus-circle text-2xl ml-1 text-green-600 hover:text-green-800"></i>
                         </div>
                     </div>
                     <div>

@@ -13,12 +13,14 @@ export const getBreeds = ()=>dispatch=>{
     .then(res => dispatch({type:adminTypes.GET_BREEDS_SUCCESS, payload: res.data}))
     .catch(err=> dispatch({type: adminTypes.GET_BREEDS_FAIL, payload: err}))
 }
-export const addBreed = (breed) =>dispatch=>{
+export const addBreed = (breed) => async(dispatch)=>{
     const newBreed ={"name":breed}
-    console.log(newBreed)
     dispatch({type: adminTypes.ADD_BREED_START});
     API.post("admin/breeds/add", newBreed)
-    .then(res => dispatch({type:adminTypes.ADD_BREED_SUCCESS, payload: res.data}))
+    .then((res) =>{ 
+        dispatch({type:adminTypes.ADD_BREED_SUCCESS, payload: res.data})
+        dispatch(getBreeds())
+    })
     .catch(err=> dispatch({type: adminTypes.ADD_BREED_FAIL, payload: err}))
 }
 

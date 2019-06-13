@@ -24,7 +24,7 @@ export default function Header(props) {
         </div>
         <div className="text-header p-12">
             <h2 className="text-2xl font-bold body-font">{props.kennel.name}</h2>
-            <p className="kennel-gittext py-4 pr-4">
+            <p className="kennel-text py-4 pr-4">
             {props.kennel.bio}
             </p>
         <div className="flex w-full items-baseline justify-between my-4 pr-4">
