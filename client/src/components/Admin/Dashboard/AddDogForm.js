@@ -42,7 +42,7 @@ export default class DogRequestForm extends Component {
     this.setState({
       filtered: newList
     });
-  }
+   }
     handleInput = e => {
          this.setState({ [e.target.name]: e.target.value});
     }
@@ -79,13 +79,13 @@ export default class DogRequestForm extends Component {
     }
     componentDidMount() {
         this.setState({
-          filtered: this.props.breeds
+          filtered: this.props.breeds.sort((a, b) => (a.name > b.name) ? 1 : -1)
         });
       }
       
       componentWillReceiveProps(nextProps) {
         this.setState({
-          filtered: nextProps.breeds
+          filtered: nextProps.breeds.sort((a, b) => (a.name > b.name) ? 1 : -1)
         });
       }
     render() {
@@ -100,8 +100,8 @@ export default class DogRequestForm extends Component {
                     <div className="w-1/2 overflow-y-auto h-64">
                         <input onChange={(e)=>this.handleSearch(e)} type="text" placeholder="Search Breeds..."/>
                         {
-                            this.state.filtered.map(breed=>{
-                                return (<div key={breed.id} className={breed.id%2 === 0?"flex my-1 items-baseline py-1 bg-blue-200 font-semibold" :"flex my-1 items-baseline py-1  font-semibold" }>
+                            this.state.filtered.map((breed, i)=>{
+                                return (<div key={breed.id} className={i%2 === 0?"flex my-1 items-baseline py-1 bg-blue-200 font-semibold" :"flex my-1 items-baseline py-1  font-semibold" }>
                                 <input onChange={(e)=>this.assignBreed(e, breed)} className=" ml-10 mr-6" type="checkbox" name="size" value={breed.name}/><label className="text-left block text-blue-900 text-md mb-2">{breed.name}</label> 
                             </div>)
                             })
