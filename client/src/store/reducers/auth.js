@@ -7,7 +7,8 @@ const initialState = {
     error: null,
     loggedIn: false,
     messages: [],
-    newDog: null
+    newDog: null,
+    breeds: []
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -61,19 +62,38 @@ export default (state = initialState, { type, payload }) => {
             loading: true,
             error: null
         }
-    case adminTypes.GET_NOTIFICATION_START:
+    case adminTypes.GET_NOTIFICATION_SUCCESS:
             return{
                 ...state,
                 loading: false,
                 messages: payload,
                 error: null
         }
-    case adminTypes.GET_NOTIFICATION_START:
+    case adminTypes.GET_NOTIFICATION_FAIL:
         return{
             ...state,
             loading: false,
             error: payload
-    }   
+    }
+    case adminTypes.GET_BREEDS_START:
+        return{
+            ...state,
+            loading: true,
+            error: null
+        }
+    case adminTypes.GET_BREEDS_SUCCESS:
+        return{
+            ...state,
+            loading: false,
+            breeds: payload,
+            error: null
+        }
+    case adminTypes.GET_BREEDS_FAIL:
+        return{
+            ...state,
+            loading: false,
+            error: payload
+    }     
     case adminTypes.ADD_DOG_START:
         return{
             ...state,

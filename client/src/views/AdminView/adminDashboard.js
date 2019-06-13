@@ -50,7 +50,9 @@ class AdminDashboard extends Component {
                     closeModal ={this.closeModal}
                     closeModal ={this.closeModal}
                     addDog={this.props.addDog}
+                    getBreeds={this.props.getBreeds}
                     user={this.state.user}
+                    breeds={this.props.breeds}
                     />
                 }
             </div>
@@ -60,13 +62,15 @@ class AdminDashboard extends Component {
 
 
 const mapStateToProps = (state) => ({
-    messages:state.auth.messages
+    messages:state.auth.messages,
+    breeds:state.auth.breeds
 })
 
 const mapDispatchToProps = dispatch=> {
     return{
        getNotifications: (id) => dispatch(actions.admins.getNotifications(id)),
        addDog: (dog) => dispatch(actions.admins.addDog(dog)),
+       getBreeds: () => dispatch(actions.admins.getBreeds()),
     }
 }
 

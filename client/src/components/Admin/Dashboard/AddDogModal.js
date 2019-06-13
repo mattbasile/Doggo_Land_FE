@@ -22,16 +22,18 @@ constructor(props){
    }
     
 }
+
 componentDidMount(){
     // const kennel = this.props.kennels.find(kennel => kennel.id === this.props.dog.kennel_id);
     // this.setState({kennel})
 }
 componentWillMount(){
     document.addEventListener('mousedown',this.handleClick, false)
-  }
-  componentWillUnmount(){
-   document.removeEventListener('mousedown', this.handleClick, false)
- }
+    this.props.getBreeds()
+}
+componentWillUnmount(){
+document.removeEventListener('mousedown', this.handleClick, false)
+}
  handleClick=(e)=>{
    if(this.node.contains(e.target)){
      console.log("continue ur work")
@@ -49,7 +51,7 @@ componentWillMount(){
     render() {
         return (
         <div className="modal-overlay">
-            <section ref={node =>this.node = node} className=" mx-auto w-4/5 modal z-10 justify-center items-center text-center shadow-xl my-4 bg-white">
+            <section ref={node =>this.node = node} className=" mx-auto w-4/5 add-modal z-10 justify-center items-center text-center shadow-xl my-4 bg-white">
                 {this.props.submitted ? (
                 <div>
                     <h2 className="submitted-header">Thank you for your interest in {this.props.dog.name}!</h2>
@@ -60,7 +62,13 @@ componentWillMount(){
                 :
                 (
                 <>
-                <AddDogForm dog={this.props.dog} submitRequest={this.props.submitRequest} addDog={this.props.addDog} kennel_id={this.props.user.kennel_id}/>
+                <AddDogForm 
+                dog={this.props.dog}
+                addDog={this.props.addDog}
+                getBreeds={this.props.getBreeds}
+                kennel_id={this.props.user.kennel_id}
+                breeds={this.props.breeds}
+                />
                 </>
                 )
             
