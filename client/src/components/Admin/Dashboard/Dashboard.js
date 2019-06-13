@@ -18,7 +18,7 @@ export default class Dashboard extends Component {
                 <Navbar user={this.props.user} messages={this.props.messages} {...this.props}/>
                 <Header user={this.props.user} messages={this.props.messages}/>
                 <MessageSection user={this.props.user} messages={this.props.messages}/>
-                <DogsChart showModal={this.props.showModal} user={this.props.user}/>
+                <DogsChart showModal={this.props.showModal} user={this.props.user} messages={this.props.messages}/>
                 <Footer/>
             </section>
         )

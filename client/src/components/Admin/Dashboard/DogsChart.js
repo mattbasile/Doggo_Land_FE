@@ -24,8 +24,12 @@ export default function DogsChart(props) {
                 <div className="table-row justify-center">Actions</div>
             </div>
             <div>
-                <DogRow />
-                <DogRow even={true} last={true}/>
+                {props.user.dogs.map((dog, i)=>{
+                    const messages = props.messages.map(mes =>{
+                        return mes.dog_id = dog.id
+                    })
+                    return <DogRow messages={messages} key={dog.id} dog={dog} even={i%2 ===0 ? false : true} last={i === props.user.dogs.length-1 ?true: false}/>
+                })}
             </div>
             <div className="text-white flex table-footer text-center">
             </div>
