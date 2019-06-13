@@ -8,7 +8,7 @@ class AdminDashboard extends Component {
         super(props)
         this.state={
             user: props.user,
-            hidden: false
+            hidden: true
         }
     }
     closeModal = (e) =>{
@@ -39,13 +39,21 @@ class AdminDashboard extends Component {
         return (
             <div>
             {!this.state.user ? <h1>Loading</h1>:
-             (<Dashboard messages={this.props.messages} user={this.state.user} {...this.props}/>)
+             (<Dashboard 
+                showModal = {this.showModal}
+                messages={this.props.messages}
+                user={this.state.user}
+                {...this.props}/>)
               }
                 {this.state.hidden ? null :
                     <AddDogModal 
                     closeModal ={this.closeModal}
                     closeModal ={this.closeModal}
-                    addDog={this.addDog}/>
+                    addDog={this.props.addDog}
+                    getBreeds={this.props.getBreeds}
+                    user={this.state.user}
+                    breeds={this.props.breeds}
+                    />
                 }
             </div>
         )
@@ -54,12 +62,15 @@ class AdminDashboard extends Component {
 
 
 const mapStateToProps = (state) => ({
-    messages:state.auth.messages
+    messages:state.auth.messages,
+    breeds:state.auth.breeds
 })
 
 const mapDispatchToProps = dispatch=> {
     return{
        getNotifications: (id) => dispatch(actions.admins.getNotifications(id)),
+       addDog: (dog) => dispatch(actions.admins.addDog(dog)),
+       getBreeds: () => dispatch(actions.admins.getBreeds()),
     }
 }
 

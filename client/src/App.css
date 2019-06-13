@@ -53,6 +53,18 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.add-modal{
+    box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.25);
+    width: 654px;
+    max-width: 100%;
+    border-radius: 25px;
+    height: 485px;
+    padding: 10px 0 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .right-modal{
     width: 356px;
     height: 434px;

@@ -5,23 +5,72 @@ export default class DogRequestForm extends Component {
         super(props);
         this.state={
             name:"",
-            email:"",
+            age:"",
             bio:"",
             gender: "",
-            size: ""
+            size: "",
+            breeds: [],
+            addingBreed: false,
         }
     }
     handleInput = e => {
          this.setState({ [e.target.name]: e.target.value});
     }
-    submitRequest = e =>{
+    handleAddDog = e =>{
         e.preventDefault();
-        const message = {kennel_id: this.props.dog.kennel_id, dog_id: this.props.dog.id, ...this.state}
-        // perform POST Request
-        this.props.submitRequest(message)
+        const boolGender = this.state.gender === "male" ? 1 : 0;
+        const dog ={
+            name: this.state.name,
+            age: Number(this.state.age),
+            bio: this.state.bio,
+            size: this.state.size,
+            male: boolGender,
+            kennel_id: Number(this.props.kennel_id)
+        }
+        this.props.addDog(dog);
+    }
+    breedEditor = e =>{
+        e.preventDefault();
+        this.setState({addingBreed: true})
+    }
+    addBreed = (e,breed )=>{
+        let storedBreeds = this.state.breeds
+        if(storedBreeds.includes(breed)){
+            const index = storedBreeds.indexOf(breed);
+            storedBreeds.splice(index, 1);
+        }else{
+            storedBreeds.push(breed)
+        }
+        this.setState({breeds:storedBreeds})
     }
     render() {
         return (
+            <>
+            {this.state.addingBreed
+            ?
+            ( 
+            <>
+                <h2 className="modal-header my-4 text-center">Add Breeds</h2>
+                <div>
+                    <div>
+                        <input type="text" placeholder="Search Breeds..."/>
+                        {
+                            this.props.breeds.map(breed=>{
+                                return (<div className="flex my-1 items-baseline">
+                                <input onChange={(e)=>this.addBreed(e, breed)} className=" ml-10 mr-6" type="checkbox" name="size" value={breed.name}/><label className="text-left block text-blue-900 text-md mb-2">{breed.name}</label> 
+                            </div>)
+                            })
+                        }
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+               
+            </>
+            )
+            :
+            (
             <>
             <h2 className="modal-header my-4 text-center">Add a Dog</h2>
             <form id="sub_form" className="w-full mx-auto flex">
@@ -47,21 +96,27 @@ export default class DogRequestForm extends Component {
                         <div className="flex flex-col my-1">
                             <label className=" text-left px-10  block text-blue-900 text-sm font-semibold mb-2">Size:</label>
                             <div className="flex my-1 items-baseline">
-                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="lg"/><label className="text-left block text-blue-900 text-md mb-2">Large</label> 
+                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="large"/><label className="text-left block text-blue-900 text-md mb-2">Large</label> 
                             </div>
                             <div className="flex my-1 items-baseline">
-                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="md"/><label className="text-left block text-blue-900 text-md mb-2">Medium</label>  
+                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="medium"/><label className="text-left block text-blue-900 text-md mb-2">Medium</label>  
                             </div>
                             <div className="flex my-1 items-baseline">
-                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="sm"/><label className="text-left block text-blue-900 text-md mb-2">Small</label> 
+                                <input onChange={(e)=>this.handleInput(e)} className=" ml-10 mr-6" type="radio" name="size" value="small"/><label className="text-left block text-blue-900 text-md mb-2">Small</label> 
                             </div>
                         </div>
                     </div>
+                    <div className="px-10 flex flex-col">
+                        <label className=" text-left block text-blue-900 text-sm font-semibold mb-2">Breeds:</label>
+                        <button onClick={(e)=>this.breedEditor(e)} className="blue-background py-1 px-3 rounded text-white">Add Breeds</button>
+                    </div>
                 </div>
             </form>
-            <button onClick={(e)=>this.submitRequest(e)}className="modal-button">
+            <button className="modal-button mt-4" onClick={(e)=>this.handleAddDog(e)}>
                     Submit
             </button>
+            </>
+            )}
             </>
         )
     }
