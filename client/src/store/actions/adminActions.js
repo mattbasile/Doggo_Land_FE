@@ -24,10 +24,27 @@ export const addBreed = (breed) => async(dispatch)=>{
     .catch(err=> dispatch({type: adminTypes.ADD_BREED_FAIL, payload: err}))
 }
 
-export const addDog = dog =>dispatch=>{
-    console.log("addDog", dog)
+
+export const addDog = (dog, breeds) =>dispatch=>{
+    console.log("addDog", breeds)
     dispatch({type: adminTypes.ADD_DOG_START});
     API.post("admin/dogs", dog)
-    .then(res => dispatch({type:adminTypes.ADD_DOG_SUCCESS, payload: res.data}))
+    .then(res => {
+        dispatch({type:adminTypes.ADD_DOG_SUCCESS, payload: res.data})
+        dispatch({type:adminTypes.ASSIGN_BREED_START})
+        const assignments = breeds.map(breed=>{
+            return{"dog_id": res.data.id, "breed_id":breed.id}
+        })
+        for(let i=0; i<assignments.length; i++){
+            API.post("admin/breeds/assign", assignments[i])
+            .then(
+                dispatch({type:adminTypes.ASSIGN_BREED_SUCCESS, payload: res.data})
+            )
+            .catch(
+                err=> dispatch({type: adminTypes.ASSIGN_BREED_FAIL, payload: err})
+            )
+        }
+        
+    })
     .catch(err=> dispatch({type: adminTypes.ADD_DOG_FAIL, payload: err}))
 }

@@ -70,6 +70,8 @@ document.removeEventListener('mousedown', this.handleClick, false)
                 breeds={this.props.breeds}
                 addBreed={this.props.addBreed}
                 newBreed={this.props.newBreed}
+                loading={this.props.loading}
+                success={this.props.success}
                 />
                 </>
                 )

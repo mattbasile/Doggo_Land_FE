@@ -55,6 +55,8 @@ class AdminDashboard extends Component {
                     breeds={this.props.breeds}
                     addBreed={this.props.addBreed}
                     newBreed={this.props.newBreed}
+                    loading={this.props.loading}
+                    success={this.props.success}
                     />
                 }
             </div>
@@ -66,13 +68,16 @@ class AdminDashboard extends Component {
 const mapStateToProps = (state) => ({
     messages:state.auth.messages,
     breeds:state.auth.breeds,
-    newBreed: state.auth.newBreed
+    newBreed: state.auth.newBreed,
+    loading: state.auth.loading,
+    success: state.auth.success,
+
 })
 
 const mapDispatchToProps = dispatch=> {
     return{
        getNotifications: (id) => dispatch(actions.admins.getNotifications(id)),
-       addDog: (dog) => dispatch(actions.admins.addDog(dog)),
+       addDog: (dog,breeds) => dispatch(actions.admins.addDog(dog,breeds)),
        getBreeds: () => dispatch(actions.admins.getBreeds()),
        addBreed: (breed) => dispatch(actions.admins.addBreed(breed)),
     }

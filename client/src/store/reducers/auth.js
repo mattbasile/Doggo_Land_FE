@@ -9,7 +9,8 @@ const initialState = {
     messages: [],
     newDog: null,
     breeds: [],
-    newBreed: null
+    newBreed: null,
+    success: false
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -94,7 +95,27 @@ export default (state = initialState, { type, payload }) => {
             ...state,
             loading: false,
             error: payload
-    }     
+    }
+    case adminTypes.ASSIGN_BREED_START:
+            return{
+                ...state,
+                loading: true,
+                error: null
+            }
+        case adminTypes.ASSIGN_BREED_SUCCESS:
+            return{
+                ...state,
+                loading: false,
+                success:true,
+                error: null
+            }
+        case adminTypes.ASSIGN_BREED_FAIL:
+            return{
+                ...state,
+                loading: false,
+                error: payload,
+                success: false
+        }        
     case adminTypes.ADD_DOG_START:
         return{
             ...state,
