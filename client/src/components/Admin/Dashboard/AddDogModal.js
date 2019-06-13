@@ -68,6 +68,10 @@ document.removeEventListener('mousedown', this.handleClick, false)
                 getBreeds={this.props.getBreeds}
                 kennel_id={this.props.user.kennel_id}
                 breeds={this.props.breeds}
+                addBreed={this.props.addBreed}
+                newBreed={this.props.newBreed}
+                loading={this.props.loading}
+                success={this.props.success}
                 />
                 </>
                 )
