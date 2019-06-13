@@ -11,6 +11,8 @@ export default class DogRequestForm extends Component {
             size: "",
             breeds: [],
             addingBreed: false,
+            newBreed: "",
+            err: false
         }
     }
     handleInput = e => {
@@ -33,7 +35,7 @@ export default class DogRequestForm extends Component {
         e.preventDefault();
         this.setState({addingBreed: true})
     }
-    addBreed = (e,breed )=>{
+    assignBreed = (e,breed )=>{
         let storedBreeds = this.state.breeds
         if(storedBreeds.includes(breed)){
             const index = storedBreeds.indexOf(breed);
@@ -42,6 +44,10 @@ export default class DogRequestForm extends Component {
             storedBreeds.push(breed)
         }
         this.setState({breeds:storedBreeds})
+    }
+    createNewBreed = ()=>{
+      this.state.newBreed ? this.props.addBreed(this.state.newBreed) : this.setState({err: true})
+      this.props.getBreeds()
     }
     render() {
         return (
@@ -57,10 +63,17 @@ export default class DogRequestForm extends Component {
                         {
                             this.props.breeds.map(breed=>{
                                 return (<div className="flex my-1 items-baseline">
-                                <input onChange={(e)=>this.addBreed(e, breed)} className=" ml-10 mr-6" type="checkbox" name="size" value={breed.name}/><label className="text-left block text-blue-900 text-md mb-2">{breed.name}</label> 
+                                <input onChange={(e)=>this.assignBreed(e, breed)} className=" ml-10 mr-6" type="checkbox" name="size" value={breed.name}/><label className="text-left block text-blue-900 text-md mb-2">{breed.name}</label> 
                             </div>)
                             })
                         }
+                    </div>
+                    <div className="flex">
+                        <span>Breed not there?</span>
+                        <div>
+                            <input type="text" onChange={(e)=>this.handleInput(e)} placeholder="Add a Breed" name="newBreed" />
+                            <i onClick={()=>this.createNewBreed()}className="fas fa-plus-circle h-8 w-8 text-green-600 hover:text-green-800"></i>
+                        </div>
                     </div>
                     <div>
 

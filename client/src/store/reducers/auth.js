@@ -8,7 +8,8 @@ const initialState = {
     loggedIn: false,
     messages: [],
     newDog: null,
-    breeds: []
+    breeds: [],
+    newBreed: null
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -113,6 +114,25 @@ export default (state = initialState, { type, payload }) => {
             loading: false,
             error: payload
         }
+    case adminTypes.ADD_BREED_START:
+            return{
+                ...state,
+                loading: true,
+                error: null
+            }
+        case adminTypes.ADD_BREED_SUCCESS:
+            return{
+                ...state,
+                loading: false,
+                newBreed: payload,
+                error: null
+            }
+        case adminTypes.ADD_BREED_FAIL:
+            return{
+                ...state,
+                loading: false,
+                error: payload
+            }
     
     default:
         return state
