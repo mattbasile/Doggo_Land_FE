@@ -28,7 +28,7 @@ componentDidMount(){
  } 
  requestDog(e, id){
    e.preventDefault();
-   console.log(this.props.dogs)
+   console.log('trying')
    const dog = this.props.dogs.find(dog=>dog.id ===id);
    this.setState({hidden: false, requested: dog})
  }
@@ -55,12 +55,14 @@ closeModal(e){
         {...props}  
         kennels={this.props.kennels} 
         dogs={this.props.dogs} 
-        requestDog={this.requestDog}/>} />
+        requestDog={this.requestDog.bind(this)}/>} />
         <Route path="/dogs/:id"  render={(props) => <DogView 
         {...props} 
+        requestDog={this.requestDog.bind(this)}
         kennels={this.props.kennels} 
-        dogs={this.props.dogs}/>} 
-        requestDog={this.requestDog}/>
+        dogs={this.props.dogs}
+        />} 
+        />
       </Switch>
       {this.state.hidden ? null :
         <DogCardModal 

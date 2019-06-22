@@ -33,7 +33,7 @@ export default class DogView extends Component {
         return (
             <section>
 
-                <DogPage {...this.props} dog={this.establish_dog().dog} kennel={this.establish_dog().kennel} />
+                <DogPage {...this.props} dogs={this.props.dogs} requestDog= {this.props.requestDog} dog={this.establish_dog().dog} kennel={this.establish_dog().kennel} />
         
             </section>
         )

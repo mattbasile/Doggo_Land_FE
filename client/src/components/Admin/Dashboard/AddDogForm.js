@@ -139,8 +139,17 @@ export default class DogRequestForm extends Component {
                     </div>
                 </div>
                 <div>
-                    <button onClick={this.state.breeds.length <1 ? null : (e)=>{this.returnToModal(e)}}
-                    className={this.state.breeds.length <1 ? "cursor-not-allowed mx-auto mt-6 rounded px-6 py-2 text-white bg-red-900 flex justify-center items-center": "mx-auto mt-6 rounded px-6 py-2 text-white bg-green-400 flex justify-center items-center"}>Breeds Added<i className="text-lg ml-1 far fa-thumbs-up"></i></button>
+                    {this.state.breeds.length < 1 ? (
+                        <button className="cursor-not-allowed mx-auto mt-6 rounded px-6 py-2 text-white bg-red-900 flex justify-center items-center">No Breeds<i className="text-lg ml-1 far fa-thumbs-down"></i></button>
+                    )
+                    : 
+                    (
+                        <button 
+                        onClick={(e)=>{this.returnToModal(e)}}
+                        className="mx-auto mt-6 rounded px-6 py-2 text-white bg-green-400 flex justify-center items-center"
+                        >Add Breeds<i className="text-lg ml-1 far fa-thumbs-up"></i></button>
+                    )
+                    }
                 </div>
                
             </>
