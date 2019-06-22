@@ -1,13 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-
 export default function KennelCard(props) {
     let image_styles = {
         height: "55%",
         background: `lightblue url(${props.kennel.img_url}) no-repeat center center`, 
         backgroundSize: "cover"
     }
+    console.log(props)
     return (
         <div className="card my-8 flex flex-col justify-between">
             <div style={image_styles} className="rounded-t-sm"></div>
@@ -20,10 +20,10 @@ export default function KennelCard(props) {
                     </div>
                     
                 </div>
-                <p className="body-font font-normal text-sm">{
-                    props.kennel.bio.length > 100 ? (`${props.kennel.bio.substring(0,100)}...`)
-                    :props.kennel.bio 
-                    } </p>
+                <p className="body-font font-normal ">{
+                    props.kennel.bio === null ? `${props.kennel.name} is a lovely home for dogs...` : props.kennel.bio.length > 90 ? (`${props.kennel.bio.substring(0,90)}...`) : props.kennel.bio 
+                    } 
+                </p>
                 <div className="flex mt-4">
                     <div className="flex w-1/2 items-baseline ">
                         <i className="fas fa-home text-xl"></i>

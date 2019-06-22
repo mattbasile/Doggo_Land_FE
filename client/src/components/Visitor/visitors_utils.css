@@ -1,0 +1,10 @@
+.filter{
+    width: 120px;
+    text-align: center;
+}
+.filter:hover{
+    background: #4273A0;
+    border-radius: 25px;  
+    color:white;
+    cursor: pointer;
+}

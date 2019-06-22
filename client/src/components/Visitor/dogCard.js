@@ -30,8 +30,7 @@ export default function DogCard(props) {
                     
                 </div>
                 <p className="body-font font-normal ">{
-                    props.dog.bio.length > 90 ? (`${props.dog.bio.substring(0,90)}...`)
-                    :props.dog.bio 
+                    props.dog.bio === null ? `${props.dog.name} is the goodest doggo...` : props.dog.bio.length > 90 ? (`${props.dog.bio.substring(0,90)}...`) : props.dog.bio 
                     } 
                 </p>
             </div>

@@ -10,7 +10,7 @@ export default function DogPage(props) {
     return (
         <div>
            <NavBar {...props}/>
-           <Header dog={props.dog} kennel={props.kennel}/>
+           <Header dogs={props.dogs} dog={props.dog} kennel={props.kennel} requestDog={props.requestDog}/>
            <Footer/>
         </div>
     )

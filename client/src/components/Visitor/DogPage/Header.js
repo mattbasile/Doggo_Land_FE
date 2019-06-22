@@ -38,10 +38,10 @@ export default function Header(props) {
                 </div>
             </div>
             <div>
-            <button className="contact-btn contact-two font-blue">
+            <a href={`mailto:${props.kennel.email}`} className="contact-btn contact-two font-blue inline-block">
                 Contact Kennel
-            </button>
-            <button className="contact-btn ">
+            </a>
+            <button onClick={(e)=>props.requestDog(e,props.dog.id)} className="contact-btn">
                 Meet {props.dog.name}
             </button>
             </div>
