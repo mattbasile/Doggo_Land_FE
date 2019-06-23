@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import LazyLoad from 'react-lazy-load';
 import './dog-page.css'
 
 

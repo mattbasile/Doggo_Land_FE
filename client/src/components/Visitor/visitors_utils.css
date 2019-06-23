@@ -8,3 +8,11 @@
     color:white;
     cursor: pointer;
 }
+.selected{
+    width: 120px;
+    text-align: center;
+    background: #4273A0;
+    border-radius: 25px;
+    color:white;
+    cursor: pointer;
+}
