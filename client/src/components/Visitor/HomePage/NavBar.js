@@ -8,8 +8,8 @@ export default function NavBar(props) {
             <nav className="flex justify-between w-1/3 text-2xl font-medium">
                 <a href="">Dogs</a>
                 <a href="">Kennels</a>
-                <a href="">About</a>
-                <a href="">Contact</a> 
+                <a onClick={() => {props.history.push('/about')}} >About</a>
+                <a onClick={() => {props.history.push('/contact')}} >Contact</a> 
             </nav>
             <button onClick={() => {props.history.push(localStorage.getItem("authToken")?'/admin/dashboard':'./login')}} className=" text-2xl green-background hover:bg-green-700 text-white font-bold py-2 px-4 rounded font-light">
                 Admin
