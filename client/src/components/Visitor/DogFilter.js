@@ -29,7 +29,6 @@ export default function DogFilter(props) {
         if(clicked === "location"){
           let filterValues  = props.kennels.filter(kennel=>kennel[clicked]!=null)
           let sortedValues = filterValues.map(kennel=>kennel[clicked])
-          console.log(sortedValues)
           assignValues(sortedValues);
         }
       }

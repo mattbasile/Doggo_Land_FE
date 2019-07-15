@@ -88,6 +88,7 @@ export default class Dropdown extends Component {
                                     )
                             )})
                         }
+                        <button className="w-full">Submit</button>
             </div>
         </section>
     )
