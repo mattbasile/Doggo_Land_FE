@@ -6,7 +6,7 @@ import Baxter from '../../../imgs/baxter.jpg'
 export default function AboutPage(props) {
     let image_styles = {
         height: "auto",
-        backgroundImage: Baxter,
+        backgroundImage: `${Baxter}`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center", 
         backgroundSize: "cover",
@@ -26,9 +26,9 @@ export default function AboutPage(props) {
                     I hope you enjoyed the site and if you have any questions at all please don’t hesitate to contact me! 
                 </p>
             
-            <a onClick={() => {props.history.push('/contact')}} className="contact-btn contact-two font-blue inline-block">
+            <button onClick={() => {props.history.push('/contact')}} className="contact-btn contact-two font-blue inline-block">
                 Contact Matt
-            </a>
+            </button>
             </div>
         </section>
            <Footer/>
