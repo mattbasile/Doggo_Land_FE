@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './visitors_utils.css'
 
 export default class Dropdown extends Component {
     constructor(props){
@@ -36,6 +37,7 @@ export default class Dropdown extends Component {
         });
     }
     assignValue = (e, value )=>{
+        console.log(value)
         let storedValues = this.state.values
         if(storedValues.includes(value)){
             const index = storedValues.indexOf(value);
@@ -61,10 +63,10 @@ export default class Dropdown extends Component {
             <div className="triangle">
 
             </div>
-            <div className="w-1/2 overflow-y-auto h-64">
-                        <div className="flex mx-auto w-4/5 justify-center items-baseline">
-                            <label className="block text-blue-900 text-sm font-semibold mb-2">Search:</label>
-                            <input className="bg-blue-100 rounded p-1 border-blue-100 mx-auto" onChange={(e)=>this.handleSearch(e)} type="text" placeholder=""/>
+            <div className="w-1/2 overflow-y-auto bg-blue-200 h-64 py-4">
+                        <div className="flex text-center w-full justify-center">
+                            <span className="text-white blue-background h-full p-2 px-4 rounded-l-full text-xl"><i className="fa fa-search"></i></span>
+                            <input className="bg-white rounded-r-full p-1 border-black w-2/5" onChange={(e)=>this.handleSearch(e)} type="text" placeholder=""/>
                         </div>
                        
                         {
@@ -75,11 +77,11 @@ export default class Dropdown extends Component {
                                             <input onChange={(e)=>this.assignValue(e, value)} 
                                             className=" ml-10 mr-6" 
                                             type="checkbox" 
-                                            name="size" 
-                                            value={value.name}
+                                            // name={value} 
+                                            value={value}
                                             checked
                                             />
-                                            <label className="text-left block text-blue-900 text-md mb-2">{value.name}</label> 
+                                            <label className="text-left block text-blue-900 text-md mb-2">{value}</label> 
                                         </div>
                                     ):(
                                         <div key={value.id} className={i%2 === 0?"flex my-1 items-baseline py-1 bg-blue-200 font-semibold" :"flex my-1 items-baseline py-1  font-semibold" }>
@@ -88,7 +90,7 @@ export default class Dropdown extends Component {
                                     )
                             )})
                         }
-                        <button className="w-full">Submit</button>
+                        <button className="w-3/5 mx-auto bg-white blue-font py-2 block rounded hover:bg-blue-900 hover:text-white">Submit</button>
             </div>
         </section>
     )

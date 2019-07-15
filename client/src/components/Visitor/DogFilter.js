@@ -35,6 +35,7 @@ export default function DogFilter(props) {
       toggleDropDown(!currentDisplay);
     }
     return (
+      <>
         <section className="flex w-3/5 mx-auto justify-around my-8 body-font font-extrabold blue-font text-2xl">
           <p onClick={(ev)=>handleMenuClick(ev)} className={selected === "Breeds" ? "selected" : "filter"}>Breeds</p>
           {props.kennelPage ? 
@@ -43,9 +44,9 @@ export default function DogFilter(props) {
           (<p onClick={(ev)=>handleMenuClick(ev)} className={selected === "Location" ? "selected" : "filter"}>Location</p>)
           }
           <p onClick={(ev)=>handleMenuClick(ev)} className={selected === "Size" ? "selected" : "filter"}>Size</p>
-          {hiddenDropDown ? null : <DropDown values={filteredValues}/>}
         </section>
-        
+          {hiddenDropDown ? null : <DropDown values={filteredValues}/>}
+      </>
 
     )
 }
