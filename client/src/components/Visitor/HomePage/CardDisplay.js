@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DogCard from '../DogCard'
 import KennelCard from '../KennelCard'
 import DogFilter from '../DogFilter'
+import DropDown from '../Dropdown'
 
 export default function CardDisplay(props) {
   return (
@@ -13,7 +14,7 @@ export default function CardDisplay(props) {
         </div>
     </div>
     <section className="mt-16">
-      <DogFilter kennelPage={false}/>
+      {props.displayKennels ? null : <DogFilter dogs={props.dogs} kennelPage={false}/>}
       <div className="flex flex-wrap justify-around mx-auto">
         {props.displayKennels ?
          (props.kennels.map(kennel=>{
