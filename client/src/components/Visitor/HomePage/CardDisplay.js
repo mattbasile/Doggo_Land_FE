@@ -14,7 +14,7 @@ export default function CardDisplay(props) {
         </div>
     </div>
     <section className="mt-16">
-      {props.displayKennels ? null : <DogFilter dogs={props.dogs} kennelPage={false}/>}
+      {props.displayKennels ? null : <DogFilter dogs={props.dogs} kennels={props.kennels} kennelPage={false}/>}
       <div className="flex flex-wrap justify-around mx-auto">
         {props.displayKennels ?
          (props.kennels.map(kennel=>{

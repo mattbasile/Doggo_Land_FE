@@ -9,10 +9,30 @@ export default function DogFilter(props) {
     const handleMenuClick = (ev) =>{
       changeSelected(ev.target.innerText)
       const currentDisplay = hiddenDropDown;
-      const clicked = ev.target.innerText.toLowerCase();
-      let filterValues  = props.dogs.filter(dog =>dog[clicked][0]!=undefined)
-      let sortedValues = filterValues.map(dogs => dogs[clicked][0])
-      assignValues(sortedValues);
+      let clicked = ev.target.innerText.toLowerCase();
+      if(Array.isArray(props.dogs[0][clicked])){
+        let filterValues  = props.dogs.filter(dog =>dog[clicked][0]!=undefined)
+        let sortedValues = filterValues.map(dogs => dogs[clicked][0])
+        assignValues(sortedValues);
+      }
+      else{
+        if(clicked === "age"){
+          clicked = "Age"
+          let sortedValues = props.dogs.map(dog=>dog[clicked]);
+          assignValues(sortedValues);
+        }
+        if(clicked === 'size'){
+          clicked ="Size"
+          let sortedValues = ["Small", "Medium", "Large"]
+          assignValues(sortedValues);
+        }
+        if(clicked === "location"){
+          let filterValues  = props.kennels.filter(kennel=>kennel[clicked]!=null)
+          let sortedValues = filterValues.map(kennel=>kennel[clicked])
+          console.log(sortedValues)
+          assignValues(sortedValues);
+        }
+      }
       toggleDropDown(!currentDisplay);
     }
     return (
