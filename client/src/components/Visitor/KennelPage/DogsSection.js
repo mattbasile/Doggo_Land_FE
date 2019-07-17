@@ -9,7 +9,7 @@ export default function DogsSection(props) {
             <div className="blue-background h-24 text-center flex justify-center items-center text-white mb-6">
                 <h2 className="text-5xl font-normal title-font tracking-wide">Our Dogs</h2>
             </div>
-            <DogFilter kennelPage={true}/>
+            <DogFilter kennelPage={true} dogs={props.kennel.dogs}/>
             <div className="flex flex-wrap mx-auto justify-around">
             {props.kennel.dogs.map(dog=>{
                 return <DogCard key={dog.id} dog={dog}/>
