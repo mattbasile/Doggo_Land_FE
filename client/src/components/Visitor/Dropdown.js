@@ -57,23 +57,28 @@ export default class Dropdown extends Component {
         filtered: nextProps.values.sort((a, b) => (a.name > b.name) ? 1 : -1)
     });
     }
+    submitFilterHandle(){
+        this.props.handleFilteringCards(this.props.selected, this.state.values[0])
+    }
+
+
     render() {
         return (
-        <section>
+        <section className="flex flex-col items-center w-3/5 rounded-lg">
             <div className="triangle">
 
             </div>
-            <div className="w-1/2 overflow-y-auto bg-blue-200 h-64 py-4">
-                        <div className="flex text-center w-full justify-center">
-                            <span className="text-white blue-background h-full p-2 px-4 rounded-l-full text-xl"><i className="fa fa-search"></i></span>
-                            <input className="bg-white rounded-r-full p-1 border-black w-2/5" onChange={(e)=>this.handleSearch(e)} type="text" placeholder=""/>
-                        </div>
-                       
+            <div className="w-1/2 overflow-y-auto dropdown-bg h-48 py-4">
+                <div className="flex text-center w-full justify-center mb-3">
+                    <span onClick={()=>this.submitFilterHandle()}className={this.state.values.length <1 ? "text-white blue-background h-full p-2 px-4 rounded-l-full text-xl hover:bg-red-600 cursor-not-allowed" :"text-white blue-background h-full p-2 px-4 rounded-l-full text-xl hover:bg-blue-600 cursor-pointer"}><i className="fa fa-search"></i></span>
+                    <input className="bg-white rounded-r-full p-1 border-black w-3/5" onChange={(e)=>this.handleSearch(e)} type="text" placeholder=""/>
+                </div>
+                
                         {
                             this.state.filtered.map((value, i)=>{
                                 return(
                                     this.state.values.includes(value)?(
-                                        <div key={value.id} className={i%2 === 0?"flex my-1 items-baseline py-1 bg-blue-200 font-semibold" :"flex my-1 items-baseline py-1  font-semibold" }>
+                                        <div key={value.id} className="flex my-1 items-baseline py-1  font-semibold">
                                             <input onChange={(e)=>this.assignValue(e, value)} 
                                             className=" ml-10 mr-6" 
                                             type="checkbox" 
@@ -84,13 +89,13 @@ export default class Dropdown extends Component {
                                             <label className="text-left block text-blue-900 text-md mb-2">{value}</label> 
                                         </div>
                                     ):(
-                                        <div key={value.id} className={i%2 === 0?"flex my-1 items-baseline py-1 bg-blue-200 font-semibold" :"flex my-1 items-baseline py-1  font-semibold" }>
+                                        <div key={value.id} className="flex my-1 items-baseline py-1  font-semibold">
                                             <input onChange={(e)=>this.assignValue(e, value)} className=" ml-10 mr-6" type="checkbox" name="size" value={value.name}/><label className="text-left block text-blue-900 text-md mb-2">{value}</label> 
                                         </div>
                                     )
                             )})
                         }
-                        <button className="w-3/5 mx-auto bg-white blue-font py-2 block rounded hover:bg-blue-900 hover:text-white">Submit</button>
+                        {/* <button className="w-3/5 mx-auto bg-white blue-font py-2 block rounded hover:bg-blue-900 hover:text-white">Submit</button> */}
             </div>
         </section>
     )

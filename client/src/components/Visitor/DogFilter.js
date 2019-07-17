@@ -6,6 +6,7 @@ export default function DogFilter(props) {
     const [selected, changeSelected] = useState('');
     const [hiddenDropDown, toggleDropDown] = useState(true);
     const [filteredValues, assignValues] = useState([]);
+
     const handleMenuClick = (ev) =>{
       changeSelected(ev.target.innerText)
       const currentDisplay = hiddenDropDown;
@@ -45,7 +46,7 @@ export default function DogFilter(props) {
           }
           <p onClick={(ev)=>handleMenuClick(ev)} className={selected === "Size" ? "selected" : "filter"}>Size</p>
         </section>
-          {hiddenDropDown ? null : <DropDown values={filteredValues}/>}
+          {hiddenDropDown ? null : <DropDown handleFilteringCards={props.handleFilteringCards} values={filteredValues} selected={selected}/>}
       </>
 
     )
