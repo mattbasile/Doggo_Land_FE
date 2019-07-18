@@ -58,10 +58,10 @@ export default class Dropdown extends Component {
     });
     }
     submitFilterHandle(){
+        this.props.toggleDropDown(true)
         this.props.handleFilteringCards(this.props.selected, this.state.values[0])
     }
-
-
+  
     render() {
         return (
         <section className="flex flex-col items-center w-3/5 rounded-lg">
