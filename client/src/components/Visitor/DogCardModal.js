@@ -40,9 +40,6 @@ componentWillMount(){
    else{
      this.props.closeModal(e)
    }
-   // CloseModal
-//    this.handleClickOutside()
-
  
  }
 

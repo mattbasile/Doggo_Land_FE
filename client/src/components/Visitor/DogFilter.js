@@ -9,7 +9,7 @@ export default function DogFilter(props) {
 
     const handleMenuClick = (ev) =>{
       changeSelected(ev.target.innerText)
-      const currentDisplay = hiddenDropDown;
+      toggleDropDown(false)
       let clicked = ev.target.innerText.toLowerCase();
       if(Array.isArray(props.dogs[0][clicked])){
         let filterValues  = props.dogs.filter(dog =>dog[clicked][0]!=undefined)
@@ -33,7 +33,6 @@ export default function DogFilter(props) {
           assignValues(sortedValues);
         }
       }
-      toggleDropDown(!currentDisplay);
     }
     return (
       <>
@@ -46,7 +45,7 @@ export default function DogFilter(props) {
           }
           <p onClick={(ev)=>handleMenuClick(ev)} className={selected === "Size" ? "selected" : "filter"}>Size</p>
         </section>
-          {hiddenDropDown ? null : <DropDown handleFilteringCards={props.handleFilteringCards} values={filteredValues} selected={selected}/>}
+          {hiddenDropDown ? null : <DropDown hiddenDropDown={hiddenDropDown} toggleDropDown={toggleDropDown} handleFilteringCards={props.handleFilteringCards} values={filteredValues} selected={selected}/>}
       </>
 
     )
