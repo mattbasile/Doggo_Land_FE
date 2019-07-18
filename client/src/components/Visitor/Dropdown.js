@@ -61,22 +61,7 @@ export default class Dropdown extends Component {
         this.props.toggleDropDown(true)
         this.props.handleFilteringCards(this.props.selected, this.state.values[0])
     }
-    componentWillMount(){
-        document.addEventListener('mousedown',this.handleClick, false)
-      }
-    componentWillUnmount(){
-    document.removeEventListener('mousedown', this.handleClick, false)
-    }
-     handleClick=(e)=>{
-         debugger
-       if(e.target.hasOwnProperty(this)){
-         console.log("continue ur work")
-       }
-       else{
-         this.props.toggleDropDown(true)
-       }
-     
-     }
+  
     render() {
         return (
         <section className="flex flex-col items-center w-3/5 rounded-lg">

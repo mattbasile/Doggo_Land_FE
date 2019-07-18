@@ -35,7 +35,6 @@ componentWillMount(){
  handleClick=(e)=>{
    if(this.node.contains(e.target)){
      console.log("continue ur work")
-   
    }
    else{
      this.props.closeModal(e)

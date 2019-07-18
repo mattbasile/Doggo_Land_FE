@@ -34,6 +34,7 @@ export default function DogFilter(props) {
         }
       }
     }
+    
     return (
       <>
         <section className="flex w-3/5 mx-auto justify-around my-8 body-font font-extrabold blue-font text-2xl">
