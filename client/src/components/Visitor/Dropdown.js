@@ -65,7 +65,7 @@ export default class Dropdown extends Component {
     render() {
         return (
         <section className="flex flex-col items-center w-3/5 rounded-lg">
-            <div className="triangle">
+            <div className="triangle red">
 
             </div>
             <div className="w-1/2 overflow-y-auto dropdown-bg h-48 py-4">
