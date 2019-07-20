@@ -5,6 +5,8 @@ import DogFilter from '../DogFilter'
 import DropDown from '../Dropdown'
 
 export default function CardDisplay(props) {
+  // Filtered cards, may need to add to APP
+  
   const [filteringCards, setFilteringCardsValue] = useState();
   const [loading, setLoadingToggle] = useState(false);
   const handleFilteringCards = (value, param) =>{
